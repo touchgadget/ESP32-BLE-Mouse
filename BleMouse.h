@@ -28,6 +28,7 @@ public:
   void begin(void);
   void end(void);
   void click(uint8_t b = MOUSE_LEFT);
+  void sendReport(uint8_t buttons, signed char x, signed char y, signed char wheel = 0, signed char hWheel = 0);
   void move(signed char x, signed char y, signed char wheel = 0, signed char hWheel = 0);
   void press(uint8_t b = MOUSE_LEFT);   // press LEFT by default
   void release(uint8_t b = MOUSE_LEFT); // release LEFT by default

@@ -87,6 +87,22 @@ void BleMouse::click(uint8_t b)
   move(0,0,0,0);
 }
 
+void BleMouse::sendReport(uint8_t buttons, signed char x, signed char y, signed char wheel, signed char hWheel)
+{
+  if (this->isConnected())
+  {
+    uint8_t m[5];
+    _buttons = buttons;
+    m[0] = buttons;
+    m[1] = x;
+    m[2] = y;
+    m[3] = wheel;
+    m[4] = hWheel;
+    this->inputMouse->setValue(m, 5);
+    this->inputMouse->notify();
+  }
+}
+
 void BleMouse::move(signed char x, signed char y, signed char wheel, signed char hWheel)
 {
   if (this->isConnected())
